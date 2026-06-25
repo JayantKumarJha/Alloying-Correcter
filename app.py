@@ -10,9 +10,9 @@ st.title("⚙️ Alloy Addition Calculator")
 #     "dilution material is needed for over-limit elements — to hit your target "
 #     "spec, accounting for melt recovery and the fact that every addition (or "
 #     "dilution) changes the bath weight and therefore everything else's %."
-#)
-unit = st.radio("Weight unit", ["kg", "tons (metric)"], horizontal=True)
-unit_factor = 1.0 if unit == "kg" else 1000.0  # multiply by this to get kg
+# )
+# unit = st.radio("Weight unit", ["kg", "tons (metric)"], horizontal=True)
+# unit_factor = 1.0 if unit == "kg" else 1000.0  # multiply by this to get kg
 
 -------------------------------------------------------------------
 STEP 1 — Main ingredients (charge materials)
