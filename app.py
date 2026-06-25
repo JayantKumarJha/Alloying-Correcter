@@ -7,9 +7,6 @@ st.set_page_config(page_title="Alloy Addition Calculator", page_icon="⚙️", l
 st.title("⚙️ Alloy Addition Calculator")
 st.caption(
     "Calculate exactly how much of each alloying element to add — and how much "
-    "dilution material is needed for over-limit elements — to hit your target "
-    "spec, accounting for melt recovery and the fact that every addition (or "
-    "dilution) changes the bath weight and therefore everything else's %."
 )
 
 unit = st.radio("Weight unit", ["kg", "tons (metric)"], horizontal=True)
@@ -20,9 +17,7 @@ unit_factor = 1.0 if unit == "kg" else 1000.0  # multiply by this to get kg
 # -------------------------------------------------------------------
 st.header("1. Main Ingredients (Charge)")
 st.caption(
-    "List every raw material you charged — Casting, TT, Wheels, Ingot, etc — "
-    "with its weight and expected melting recovery. The bath weight is the sum "
-    "of each material's retained (recovered) weight."
+    "List every raw material you charged — Casting, TT"
 )
 
 if "ingredients_df" not in st.session_state:
@@ -55,11 +50,7 @@ st.success(f"**Molten bath weight ≈ {bath_weight_display:,.3f} {unit}** ({bath
 # -------------------------------------------------------------------
 st.header("2. Alloying Elements")
 st.caption(
-    "Enter **Current %** from your test report and the **Target %** you need. "
-    "If Current % is *below* target, the app calculates an addition. If Current % "
-    "is *above* target (e.g. 12% vs a 10% limit), the app treats it as an "
-    "over-limit element and works out the dilution needed in Step 3 — no need "
-    "to set anything differently yourself, it's detected automatically."
+    "Enter **Current %** from your test report and the **Target %** you need for all alloying Elements"
 )
 
 if "elements_df" not in st.session_state:
@@ -98,15 +89,7 @@ edited_df = st.data_editor(
 st.header("3. Dilution Material (only if any element is over-limit)")
 st.caption(
     "If any element's Current % is above its Target % above, fill this in — the "
-    "app will calculate exactly how much of this material to add to bring the "
-    "*worst* over-limit element down to its target (other over-limit elements "
-    "will land at-or-below their own targets too, as a side effect). "
-    "**Assumption:** this material is treated as containing ~0% of every tracked "
-    "element — i.e. it's a clean diluent like primary aluminium, low-alloy ingot, "
-    "or clean low-content scrap. If your chosen material actually carries "
-    "meaningful amounts of a tracked element, list it as a Main Ingredient in "
-    "Step 1 instead, with its known weight."
-)
+    "app will calculate exactly how much of this material is required."
 
 dc1, dc2 = st.columns(2)
 with dc1:
