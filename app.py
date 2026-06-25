@@ -5,14 +5,14 @@ import pandas as pd
 st.set_page_config(page_title="Alloy Addition Calculator", page_icon="⚙️", layout="centered")
 
 st.title("⚙️ Alloy Addition Calculator")
-# st.caption(
-#     "Calculate exactly how much of each alloying element to add — and how much "
-#     "dilution material is needed for over-limit elements — to hit your target "
-#     "spec, accounting for melt recovery and the fact that every addition (or "
-#     "dilution) changes the bath weight and therefore everything else's %."
-# )
-# unit = st.radio("Weight unit", ["kg", "tons (metric)"], horizontal=True)
-# unit_factor = 1.0 if unit == "kg" else 1000.0  # multiply by this to get kg
+st.caption(
+    "Calculate exactly how much of each alloying element to add — and how much "
+    "dilution material is needed for over-limit elements — to hit your target "
+    "spec, accounting for melt recovery and the fact that every addition (or "
+    "dilution) changes the bath weight and therefore everything else's %."
+)
+unit = st.radio("Weight unit", ["kg", "tons (metric)"], horizontal=True)
+unit_factor = 1.0 if unit == "kg" else 1000.0  # multiply by this to get kg
 
 -------------------------------------------------------------------
 STEP 1 — Main ingredients (charge materials)
