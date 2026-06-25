@@ -89,7 +89,7 @@ edited_df = st.data_editor(
 st.header("3. Dilution Material (only if any element is over-limit)")
 st.caption(
     "If any element's Current % is above its Target % above, fill this in — the "
-    "app will calculate exactly how much of this material is required."
+    "app will calculate exactly how much of this material is required.")
 
 dc1, dc2 = st.columns(2)
 with dc1:
